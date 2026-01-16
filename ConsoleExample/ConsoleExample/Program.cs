@@ -11,6 +11,10 @@ namespace ConsoleExample
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+            Console.Beep(3000, 500);
+            Console.Beep(1000, 500);
+            Console.Beep(500, 500);
+            Console.Read();
         }
     }
 }
