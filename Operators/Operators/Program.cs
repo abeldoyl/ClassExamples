@@ -33,6 +33,16 @@
             Console.WriteLine(a);
             Console.WriteLine(a++); // increments a by one but ony shows after rewriting a again
             Console.WriteLine(a);
+            
+
+            // formated operations on colsole
+            int firstNumber = 5;
+            int secondNumber = 10;
+            Console.WriteLine($"{firstNumber} + {secondNumber} = {firstNumber + secondNumber}");
+            Console.WriteLine($"{firstNumber} - {secondNumber} = {firstNumber - secondNumber}");
+            Console.WriteLine($"{firstNumber} * {secondNumber} = {firstNumber * secondNumber}");
+            Console.WriteLine($"{firstNumber} / {secondNumber} = {firstNumber / secondNumber}");
+
 
             //pause
             Console.Read();
