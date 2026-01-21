@@ -10,11 +10,24 @@ namespace ConsoleExample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            Console.Beep(500-900, 50000);
+
+            /*
+            Console.WriteLine("Hello, World!";
+            Console.Beep(500, 50000);
             Console.Beep(1000, 500);
             Console.Beep(500, 500);
+            */
+
+            string userInput = "hello";
+            
+            Console.WriteLine("Please Type Some Text");
+            userInput = Console.ReadLine();
+
+            Console.WriteLine($"You entered: \"{userInput}\""); // formatted string
+            Console.WriteLine("You entered: " + "\"" + userInput + "\""); // concatenate string
+
             Console.Read();
+
         }
     }
 }
