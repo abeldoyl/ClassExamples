@@ -7,14 +7,18 @@ namespace ControlFlow
     {
         static void Main(string[] args)
         {
-            int score = 59;
-            if (score >= 60)
+            int score = 60;
+            if (score >= 90)
             {
-                Console.WriteLine("Pass. You did well enough.");
+                Console.WriteLine("Excellent! You got an A.");
+            }
+            else if (score >= 70)
+            {
+                Console.WriteLine("Good job! You passed.");
             }
             else
             {
-                Console.WriteLine("Fail. Let's review and try again.");
+                Console.WriteLine("Keep trying! Practice makes perfect.");
             }
 
             //pause
