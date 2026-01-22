@@ -27,16 +27,18 @@ namespace ControlFlow
             }
             */
 
-            int day = 3;
-            switch (day)
+            Console.WriteLine("Please enter a number for the day of the week 1-7");
+           string userInput = Console.ReadLine();
+
+            switch (userInput)
             {
-                case 1:
+                case "1":
                     Console.WriteLine("It's Monday. Time to start the week!");
                     break;
-                case 2:
+                case "2":
                     Console.WriteLine("It's Tuesday. Keep going!");
                     break;
-                case 3:
+                case "3":
                     Console.WriteLine("It's Wednesday. Halfway there!");
                     break;
                 default:
