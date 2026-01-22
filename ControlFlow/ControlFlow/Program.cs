@@ -27,8 +27,15 @@ namespace ControlFlow
             }
             */
 
+            /*
+            string userInput = "";
+            int firstNumber, secondNumber;
+            Console.WriteLine("Please enter a number");
+            firstNumber = Console.ReadLine();
+
             Console.WriteLine("Please enter a number for the day of the week 1-7");
-           string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
+            */
 
             switch (userInput)
             {
