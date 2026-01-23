@@ -31,10 +31,17 @@ namespace ControlFlow
             string userInput = "";
             int firstNumber, secondNumber;
             Console.WriteLine("Please enter a number");
-            firstNumber = Console.ReadLine();
+            userInput = Console.ReadLine();
+            firstNumber = int.Parse(userInput);
+            Console.WriteLine($"You entered {firstNumber}");
+
+            Console.WriteLine("Please enter a number");
+            userInput = Console.ReadLine();
+            secondNumber = int.Parse(userInput);
+            Console.WriteLine($"You entered {secondNumber}");
 
             Console.WriteLine("Please enter a number for the day of the week 1-7");
-            string userInput = Console.ReadLine();
+            userInput = Console.ReadLine();
             
 
             switch (userInput)
