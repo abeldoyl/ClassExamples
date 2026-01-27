@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Random rand = new Random();
+            int n = rand.Next(1, 7); // Random number between 1 and 6
+            Console.WriteLine(n);
+
+            //pause
+            Console.Read();
         }
     }
 }
