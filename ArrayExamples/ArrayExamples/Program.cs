@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int thing = 0;
+            string[] fruits = new string[7];
+
+
+            //pause
+            Console.Read();
         }
     }
 }
