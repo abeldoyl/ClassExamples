@@ -26,8 +26,7 @@
                     }
                     catch (Exception ex)
                     {
-                        if (userInput == "Q" || userInput == "q"
-                            )
+                        if (userInput == "Q" || userInput == "q")
                         {
                             message = $"Have a nice day!";
                             isValid = true;
