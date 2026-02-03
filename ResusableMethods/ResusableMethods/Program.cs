@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            TestRandomNumber();
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine(RunningTotal(5, false));
+            }
             //pause
             Console.Read();
         }
@@ -30,8 +33,26 @@
             { 
                 Console.Write(count.ToString().PadLeft(padding) + "|");
             }
+            
+            Console.Read();
         }
+
+        //[x] keep track of a running total
+        //[x] optionally add the integer passed in as an argument
+        //[x] return running total
+        //[x] optionally clear the running total
         
+        static private int _runningTotal = 0;
+
+        static int RunningTotal(int currentValue = 0, bool clear = false)
+        {
+            _runningTotal += currentValue;
+            if (clear)
+            {
+                _runningTotal = 0;
+            }
+            return _runningTotal;
+        }
         static int RandomNumberBetween(int max, int min)
         {
             int range = max - min + 1;
