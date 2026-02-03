@@ -40,7 +40,7 @@ namespace LoopExample
             {
                 for (int column = 0; column < 10; column++)
                 {
-                    Console.Write((row + column).ToString().PadLeft(3));
+                    Console.Write((row * column).ToString().PadLeft(3));
                 }
                 Console.WriteLine();
                 
