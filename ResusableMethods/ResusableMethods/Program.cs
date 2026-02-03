@@ -8,6 +8,9 @@
             {
                 Console.WriteLine(RunningTotal(5, false));
             }
+            Console.WriteLine(RunningTotal());
+            Console.WriteLine(RunningTotal(0, true));
+            Console.WriteLine(RunningTotal());
             //pause
             Console.Read();
         }
@@ -35,6 +38,44 @@
             }
             
             Console.Read();
+        }
+
+        static void TestRunningTotal()
+        {
+            string userInput = "";
+            do
+            {
+            Console.WriteLine("Enter a number to add to oa running total" +
+                "\nenter c to clear\nenter q to quit");
+            userInput = Console.ReadLine();
+                try
+                {
+                    RunningTotal(int.Parse(userInput));
+                }
+                catch (Exception)
+                {
+                    switch (userInput)
+                    {
+                        case "c":
+                            RunningTotal(0, true);
+                            break;
+                        case "C":
+                            RunningTotal(0, true);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+            Console.WriteLine($"You entered {userInput}");
+            Console.WriteLine($"The current total is {RunningTotal}");
+            }
+
+                while (userInput != "Q" || userInput != "q");
+            for (int i = 0; i < 10; i++);
+            {
+                RunningTotal(5);
+            }
         }
 
         //[x] keep track of a running total
