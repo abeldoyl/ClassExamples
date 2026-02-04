@@ -5,12 +5,16 @@
         static void Main(string[] args)
         {
             int count = 5;
+            int someNumber = 5, someOtherNumber = 7;
             
-            AddNumbers();
-            SayHello();
-            ShowCount();
+            //AddNumbers();
+            //SayHello();
+            //ShowCount();
+            //Console.WriteLine(count);
+            //count = SumOf(someNumber, someOtherNumber);
+            //Console.WriteLine(count);
             Console.WriteLine(count);
-            count = SumOf(5, 7);
+            ChangeMyNumber(ref count);
             Console.WriteLine(count);
             //pause
             Console.Read();
@@ -34,6 +38,11 @@
         static int SumOf(int firstNumber, int secondNumber)
         {
             return (firstNumber + secondNumber);
+        }
+
+        static void ChangeMyNumber(ref int theNumber) 
+        {
+            theNumber *= 55;
         }
     }
 }
