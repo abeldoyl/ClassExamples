@@ -4,14 +4,7 @@
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 20; i++)
-            {
-                Console.WriteLine(RunningTotal(5, false));
-            }
-            Console.WriteLine(RunningTotal());
-            Console.WriteLine(RunningTotal(0, true));
-            Console.WriteLine(RunningTotal());
-            //pause
+            TestRunningTotal();
             Console.Read();
         }
 
@@ -43,11 +36,12 @@
         static void TestRunningTotal()
         {
             string userInput = "";
+
             do
             {
-            Console.WriteLine("Enter a number to add to oa running total" +
-                "\nenter c to clear\nenter q to quit");
-            userInput = Console.ReadLine();
+                Console.WriteLine("Enter a number to add to running total" +
+                    "\nenter c to clear\nenter q to quit");
+                userInput = Console.ReadLine();
                 try
                 {
                     RunningTotal(int.Parse(userInput));
@@ -66,16 +60,11 @@
                             break;
                     }
                 }
+                Console.WriteLine($"You entered {userInput}");
+                Console.WriteLine($"The current total is: {RunningTotal()}");
+            } while (userInput != "Q" && userInput != "q");
 
-            Console.WriteLine($"You entered {userInput}");
-            Console.WriteLine($"The current total is {RunningTotal}");
-            }
-
-                while (userInput != "Q" || userInput != "q");
-            for (int i = 0; i < 10; i++);
-            {
-                RunningTotal(5);
-            }
+            Console.WriteLine("Have a nice day!");
         }
 
         //[x] keep track of a running total
