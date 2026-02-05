@@ -10,6 +10,8 @@
  * [ ] Check if ball has already been drawn. 
  *     No: mark as drawn, Yes: draw another
 */
+using System.Diagnostics.Metrics;
+
 namespace BingoGame
 {
     internal class Program
@@ -27,9 +29,19 @@ namespace BingoGame
 
         static void Display()
         {
+            int padding = 5;
+            //print heading row
+            string[] heading = { "B", "I", "N", "G", "O" };
+            foreach (string thing in heading)
+            {
+                Console.Write(thing.PadLeft(padding) + " |");
+            }
+            Console.WriteLine();
+
+            //print the rest of rows
             for (int letter = 0; letter < 5; letter++)
             {
-                Console.Write(letter);
+                Console.Write(letter.ToString().PadLeft(padding) + " |" );
             }
 
         }
