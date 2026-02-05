@@ -19,8 +19,19 @@ namespace BingoGame
             bool[,] drawnBalls = new bool[5, 15];
 
             drawnBalls[1,0] = true;
+
+            Display();
             //pause
             Console.Read();
+        }
+
+        static void Display()
+        {
+            for (int letter = 0; letter < 5; letter++)
+            {
+                Console.Write(letter);
+            }
+
         }
     }
 }
