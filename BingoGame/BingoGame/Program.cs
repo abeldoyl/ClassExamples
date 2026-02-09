@@ -21,15 +21,19 @@ namespace BingoGame
         static void Main(string[] args)
         {
 
-            drawnBalls[1, 0] = true;
-            drawnBalls[4, 5] = true;
-            drawnBalls[3, 6] = true;
-            drawnBalls[2, 13] = true;
-            drawnBalls[0, 11] = true;
+            //drawnBalls[1, 0] = true;
+            //drawnBalls[4, 5] = true;
+            //drawnBalls[3, 6] = true;
+            //drawnBalls[2, 13] = true;
+            //drawnBalls[0, 11] = true;
+            do
+            {
+                DrawBall();
+                Display();
+                Console.Read();
+                Console.Clear();
+            } while (true);
 
-            Display();
-
-            DrawBall();
             //pause
             Console.Read();
         }
@@ -73,10 +77,11 @@ namespace BingoGame
 
         static void DrawBall()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(RandomNumberZeroTo(14));
-            }
+            int letter, number;
+            letter = RandomNumberZeroTo(4);
+            number = RandomNumberZeroTo(14);
+            drawnBalls[letter, number] = true;
+
         }
         /// <summary>
         /// Get a random integer from 0 to max inclusive.
