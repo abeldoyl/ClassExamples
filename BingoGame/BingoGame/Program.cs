@@ -28,10 +28,10 @@ namespace BingoGame
             //drawnBalls[0, 11] = true;
             do
             {
-                DrawBall();
-                Display();
-                Console.Read();
                 Console.Clear();
+                Display();
+                DrawBall();
+                Console.Read();
             } while (true);
 
             //pause
@@ -41,7 +41,7 @@ namespace BingoGame
 
         static void Display()
         {
-            int padding = 4;
+            int padding = 5;
             int prettyNumber = 0;
             string placeHolder = "";
             string columnSeperator = " |";
@@ -77,9 +77,14 @@ namespace BingoGame
 
         static void DrawBall()
         {
-            int letter, number;
-            letter = RandomNumberZeroTo(4);
-            number = RandomNumberZeroTo(14);
+            int letter = 0, number = 0;
+            do
+            {
+                letter = RandomNumberZeroTo(4);
+                number = RandomNumberZeroTo(14);
+
+            } while (drawnBalls[letter, number]);
+
             drawnBalls[letter, number] = true;
 
         }
