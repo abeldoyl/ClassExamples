@@ -2,13 +2,15 @@
  * TODO:
  * [x] Track bingo balls drawn in a two dimentional array
  * [x] Display status of all balls on the console
- * [ ] Clear all drawn balls to start a new game
- * [ ] Let the user quit
+ * [x] Clear all drawn balls to start a new game
+ * [x] Let the user quit
  * [x] Draw a random ball
  * [x] Get a random number to determine ball letter
  * [x] Get a random number to determine ball number
  * [x] Check if ball has already been drawn. 
  *     No: mark as drawn, Yes: draw another
+ * [ ] Usability
+ * [ ] Wait to draw first ball
 */
 using System.Diagnostics.Metrics;
 
@@ -18,22 +20,43 @@ namespace BingoGame
     {
         //make this global so it can be accessed by all methods
         static bool[,] drawnBalls = new bool[5, 15];
+
         static void Main(string[] args)
         {
-
-            //drawnBalls[1, 0] = true;
-            //drawnBalls[4, 5] = true;
-            //drawnBalls[3, 6] = true;
-            //drawnBalls[2, 13] = true;
-            //drawnBalls[0, 11] = true;
+            int ballcount = 0;
+            string userInput = "";
+            string userPrompt = "";
             do
             {
                 Console.Clear();
+                
+                if (ballcount < 75)
+                {
+                    Console.WriteLine("Press \"enter\" to start a new game");
+                    userPrompt = "Press \"Enter\" to draw a ball\n"
+                    + "Press \"Q\" at any time to quit\n"
+                    + "Press \"C\" to clear the board at any time";
+                    DrawBall();
+                    ballcount++;
+                }
+                else
+                {
+                    Console.WriteLine("All balls have been drawn");
+                    Console.WriteLine("Press \"Q\" to quit");
+                    Console.WriteLine("Press \"C\" to clear the board to start a new game");
+                }
+                Console.WriteLine($"Ball Count: {ballcount}");
                 Display();
-                DrawBall();
-                Console.ReadLine(); //Fixed double drawn balls issue
-            } while (true);
+                userInput = Console.ReadLine(); //Fixed double drawn balls issue
+                if (userInput == "c" || userInput == "C")
+                {
+                    ClearDrawBalls();
+                    ballcount = 0;
+                }
 
+            } while (userInput != "Q" && userInput != "q" == true);
+            Console.Clear();
+            Console.WriteLine("Have a nice day");
             //pause
             Console.Read();
         }
@@ -98,6 +121,18 @@ namespace BingoGame
             int range = max + 1; //make max inclusive
             Random rand = new Random();
             return rand.Next(range);
+
+        }
+
+        static void ClearDrawBalls()
+        {
+            for (int letter = 0; letter < 5; letter++)
+            {
+                for(int number = 0; number < 15; number++)
+                {
+                    drawnBalls[letter, number] = false;
+                }
+            }
 
         }
     }
