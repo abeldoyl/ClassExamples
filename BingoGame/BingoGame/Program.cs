@@ -9,7 +9,7 @@
  * [x] Get a random number to determine ball number
  * [x] Check if ball has already been drawn. 
  *     No: mark as drawn, Yes: draw another
- * [ ] Usability
+ * [x] Usability
  * [ ] Wait to draw first ball
 */
 using System.Diagnostics.Metrics;
@@ -25,17 +25,15 @@ namespace BingoGame
         {
             int ballcount = 0;
             string userInput = "";
-            string userPrompt = "";
             do
             {
                 Console.Clear();
                 
                 if (ballcount < 75)
                 {
-                    Console.WriteLine("Press \"enter\" to start a new game");
-                    userPrompt = "Press \"Enter\" to draw a ball\n"
+                    Console.WriteLine("Press \"enter\" to Draw a new ball\n"
                     + "Press \"Q\" at any time to quit\n"
-                    + "Press \"C\" to clear the board at any time";
+                    + "Press \"C\" to clear the board at any time");
                     DrawBall();
                     ballcount++;
                 }
