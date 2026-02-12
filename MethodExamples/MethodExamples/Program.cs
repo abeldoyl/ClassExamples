@@ -6,16 +6,17 @@
         {
             int count = 5;
             int someNumber = 5, someOtherNumber = 7;
-            
+
             //AddNumbers();
             //SayHello();
             //ShowCount();
             //Console.WriteLine(count);
             //count = SumOf(someNumber, someOtherNumber);
             //Console.WriteLine(count);
-            Console.WriteLine(count);
-            ChangeMyNumber(ref count);
-            Console.WriteLine(count);
+            //Console.WriteLine(count);
+            //ChangeMyNumber(ref count);
+            //Console.WriteLine(count);
+            Console.WriteLine(CosInDegrees(45));
             //pause
             Console.Read();
         }
@@ -43,6 +44,17 @@
         static void ChangeMyNumber(ref int theNumber) 
         {
             theNumber *= 55;
+        }
+
+        static void ShowSquareRootOf(int thisNumber)
+        {
+            Console.WriteLine(Math.Sqrt(thisNumber));
+        }
+
+        static double CosInDegrees(double angle)
+        {
+            angle = ((Math.PI / 180) * angle);
+            return Math.Cos(angle);
         }
     }
 }
