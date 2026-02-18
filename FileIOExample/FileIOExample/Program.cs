@@ -9,7 +9,8 @@
             //WriteToFile();
             //AppendToFile();
             //ReadFile();
-            ReadEntireFile("..\\..\\..\\TestFile.txt");
+            //ReadEntireFile("..\\..\\..\\email.txt");
+            FileToArray("..\\..\\..\\email.txt");
             //pause
             Console.Read();
         }
@@ -56,6 +57,28 @@
 
                 }
             }
+        }
+
+        static string[,] FileToArray(string filePath)
+        {
+            string[,] customerData = new string[5, 201];
+            string[] temp;
+
+            using (StreamReader testFile = new StreamReader(filePath))
+            {
+                do
+                {
+                    temp = testFile.ReadLine().Split(",");
+                    temp[0] = temp[0].Replace("\"$$", "");
+                    Console.WriteLine(temp[0]);
+                }
+                while (!testFile.EndOfStream);
+                {
+
+                }
+            }
+
+            return customerData;
         }
     }
 }
