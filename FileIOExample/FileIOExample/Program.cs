@@ -10,7 +10,7 @@
             //AppendToFile();
             //ReadFile();
             //ReadEntireFile("..\\..\\..\\email.txt");
-            FileToArray("..\\..\\..\\email.txt");
+            FileToArray("..\\..\\..\\email.txt"); //TODO: add display array method
             //pause
             Console.Read();
         }
