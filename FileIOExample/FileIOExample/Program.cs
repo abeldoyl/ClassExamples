@@ -4,13 +4,15 @@
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello, World!");
-
+            string path = "..\\..\\..\\email.txt";
+            string[,] customerInfo;
+            
             //WriteToFile();
             //AppendToFile();
             //ReadFile();
             //ReadEntireFile("..\\..\\..\\email.txt");
-            FileToArray("..\\..\\..\\email.txt"); //TODO: add display array method
+            customerInfo = FileToArray(path); //TODO: add display array method
+            DisplayData(customerInfo);
             //pause
             Console.Read();
         }
@@ -78,7 +80,7 @@
         }
         static string[,] FileToArray(string filePath)
         {
-            string[,] customerData = new string[5,CountOfLinesIn(filePath)];
+            string[,] customerData = new string[4,CountOfLinesIn(filePath)];
             string[] temp;
             int counter = 0;
             
@@ -96,18 +98,46 @@
                         customerData[1, counter] = temp[1];
                         customerData[2, counter] = temp[2];
                         customerData[3, counter] = temp[3];
-                        customerData[4, counter] = temp[4];
-                        Console.WriteLine(temp[3]);
+                        //Console.WriteLine(temp[3]);
                     }
                     counter++;
                 }
                 while (!testFile.EndOfStream);
-                {
 
-                }
+                
             }
 
             return customerData;
         }
+        
+        static void DisplayData (string[,] data)
+        {
+            string formattedRow = "";
+
+            for (int row = 0;  row < data.GetLength(1); row++)
+            {
+                for (int column = 0; column < data.GetLength(0); column++)
+                {
+                    try
+                    {
+                        if (data[column, row] != null)
+                        {
+                            formattedRow += data[column, row].PadRight(15) + "|".PadRight(3);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
+                }
+                
+                if (formattedRow != "")
+                {
+                    Console.WriteLine(formattedRow);
+                }
+                formattedRow = "";
+            }
+        }
     }
+
 }
