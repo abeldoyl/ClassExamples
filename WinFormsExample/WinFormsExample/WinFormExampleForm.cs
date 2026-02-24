@@ -17,9 +17,19 @@ namespace WinFormsExample
             this.Close();
         }
 
-        private void SubmitButton_Click (object sender, EventArgs e)
+        private void SubmitButton_Click(object sender, EventArgs e)
         {
             this.Text = NameTextBox.Text;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CityLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
