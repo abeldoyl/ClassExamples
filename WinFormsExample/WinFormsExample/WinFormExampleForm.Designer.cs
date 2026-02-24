@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             SubmitButton = new Button();
             ExitButton = new Button();
             NameTextBox = new TextBox();
@@ -52,6 +53,7 @@
             UpperCaseRadioButton = new RadioButton();
             checkBox3 = new CheckBox();
             checkBox4 = new CheckBox();
+            ToolTip = new ToolTip(components);
             ControlGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -74,6 +76,7 @@
             ExitButton.Size = new Size(127, 47);
             ExitButton.TabIndex = 6;
             ExitButton.Text = "E&xit";
+            ToolTip.SetToolTip(ExitButton, "To Exit (ALT + x)");
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
@@ -194,6 +197,7 @@
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
+            ToolTip.SetToolTip(groupBox1, "These are Controls");
             // 
             // radioButton3
             // 
@@ -304,8 +308,10 @@
             // 
             // WinFormExampleForm
             // 
+            AcceptButton = SubmitButton;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
             Controls.Add(checkBox3);
             Controls.Add(ReverseRadioButton);
@@ -316,7 +322,8 @@
             Controls.Add(UserInfoGroupBox);
             Controls.Add(ControlGroupBox);
             Name = "WinFormExampleForm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Example Forum";
             Load += Form1_Load;
             ControlGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
@@ -353,5 +360,6 @@
         private RadioButton UpperCaseRadioButton;
         private CheckBox checkBox3;
         private CheckBox checkBox4;
+        private ToolTip ToolTip;
     }
 }
