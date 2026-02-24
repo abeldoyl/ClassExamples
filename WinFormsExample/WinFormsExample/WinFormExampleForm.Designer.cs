@@ -151,6 +151,7 @@
             ClearButton.TabIndex = 5;
             ClearButton.Text = "&Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // ControlGroupBox
             // 
@@ -279,6 +280,7 @@
             UpperCaseRadioButton.TabStop = true;
             UpperCaseRadioButton.Text = "Upper";
             UpperCaseRadioButton.UseVisualStyleBackColor = true;
+            UpperCaseRadioButton.CheckedChanged += UpperCaseRadioButton_CheckedChanged;
             // 
             // checkBox3
             // 
