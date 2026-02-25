@@ -86,6 +86,7 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(309, 27);
             NameTextBox.TabIndex = 0;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
             // NameLabel
             // 
