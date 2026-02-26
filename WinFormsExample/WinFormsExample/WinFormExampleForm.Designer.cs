@@ -106,6 +106,7 @@
             AgeLabel.TabIndex = 5;
             AgeLabel.Text = "Age";
             AgeLabel.Click += label1_Click;
+            AgeTextBox.TextChanged += AgeTextBox_TextChanged;
             // 
             // AgeTextBox
             // 
@@ -122,6 +123,7 @@
             PhoneLabel.Size = new Size(50, 20);
             PhoneLabel.TabIndex = 9;
             PhoneLabel.Text = "Phone";
+            PhoneTextBox.TextChanged += PhoneTextBox_TextChanged;
             // 
             // PhoneTextBox
             // 
@@ -146,6 +148,7 @@
             CityTextBox.Name = "CityTextBox";
             CityTextBox.Size = new Size(309, 27);
             CityTextBox.TabIndex = 2;
+            CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
             // ClearButton
             // 
