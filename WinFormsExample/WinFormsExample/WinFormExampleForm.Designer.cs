@@ -42,12 +42,6 @@
             ClearButton = new Button();
             ControlGroupBox = new GroupBox();
             UserInfoGroupBox = new GroupBox();
-            groupBox1 = new GroupBox();
-            radioButton3 = new RadioButton();
-            checkBox2 = new CheckBox();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            checkBox1 = new CheckBox();
             ReverseRadioButton = new RadioButton();
             LowerRadioButton = new RadioButton();
             UpperCaseRadioButton = new RadioButton();
@@ -56,7 +50,6 @@
             ToolTip = new ToolTip(components);
             ControlGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // SubmitButton
@@ -106,7 +99,6 @@
             AgeLabel.TabIndex = 5;
             AgeLabel.Text = "Age";
             AgeLabel.Click += label1_Click;
-            AgeTextBox.TextChanged += AgeTextBox_TextChanged;
             // 
             // AgeTextBox
             // 
@@ -114,6 +106,7 @@
             AgeTextBox.Name = "AgeTextBox";
             AgeTextBox.Size = new Size(309, 27);
             AgeTextBox.TabIndex = 1;
+            AgeTextBox.TextChanged += AgeTextBox_TextChanged;
             // 
             // PhoneLabel
             // 
@@ -123,7 +116,6 @@
             PhoneLabel.Size = new Size(50, 20);
             PhoneLabel.TabIndex = 9;
             PhoneLabel.Text = "Phone";
-            PhoneTextBox.TextChanged += PhoneTextBox_TextChanged;
             // 
             // PhoneTextBox
             // 
@@ -131,6 +123,7 @@
             PhoneTextBox.Name = "PhoneTextBox";
             PhoneTextBox.Size = new Size(309, 27);
             PhoneTextBox.TabIndex = 3;
+            PhoneTextBox.TextChanged += PhoneTextBox_TextChanged;
             // 
             // CityLabel
             // 
@@ -187,74 +180,6 @@
             UserInfoGroupBox.TabIndex = 1;
             UserInfoGroupBox.TabStop = false;
             UserInfoGroupBox.Text = "User Info";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Location = new Point(507, 65);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(250, 208);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
-            ToolTip.SetToolTip(groupBox1, "These are Controls");
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(7, 160);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(117, 24);
-            radioButton3.TabIndex = 4;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "radioButton3";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(6, 59);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(101, 24);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 130);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(117, 24);
-            radioButton2.TabIndex = 3;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "radioButton2";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(7, 100);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(117, 24);
-            radioButton1.TabIndex = 2;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "radioButton1";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(6, 29);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(101, 24);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // ReverseRadioButton
             // 
@@ -320,7 +245,6 @@
             Controls.Add(checkBox3);
             Controls.Add(ReverseRadioButton);
             Controls.Add(checkBox4);
-            Controls.Add(groupBox1);
             Controls.Add(LowerRadioButton);
             Controls.Add(UpperCaseRadioButton);
             Controls.Add(UserInfoGroupBox);
@@ -332,8 +256,6 @@
             ControlGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
             UserInfoGroupBox.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -353,12 +275,6 @@
         private Button ClearButton;
         private GroupBox ControlGroupBox;
         private GroupBox UserInfoGroupBox;
-        private GroupBox groupBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
         private RadioButton ReverseRadioButton;
         private RadioButton LowerRadioButton;
         private RadioButton UpperCaseRadioButton;
