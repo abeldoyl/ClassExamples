@@ -18,6 +18,7 @@ namespace WinFormsExample
             CityTextBox.BackColor = Color.LightYellow;
             PhoneTextBox.Text = "";
             PhoneTextBox.BackColor = Color.LightYellow;
+            DisplayLabel.Text = "";
 
             UpperCaseRadioButton.Checked = true;
             SubmitButton.Enabled = false;
@@ -41,7 +42,7 @@ namespace WinFormsExample
                 CityTextBox.Focus();
             }
 
-            if (AgeTextBox.Text =="")
+            if (AgeTextBox.Text == "")
             {
                 message = ("Age is required\n") + message;
                 AgeTextBox.Focus();
@@ -69,15 +70,19 @@ namespace WinFormsExample
             }
         }
 
-        private void Reverse()
+        private string Reverse(string reverseThis)
         {
             if (ReverseRadioButton.Checked)
             {
-                NameTextBox.Text = new String (NameTextBox.Text.Reverse().ToArray());
+                return new String(reverseThis.Reverse().ToArray());
+            }
+            else
+            {
+                return reverseThis;
             }
         }
 
-        //Event Handelers Below
+        //Event Hrandelers Below
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -93,8 +98,12 @@ namespace WinFormsExample
             if (ValidateFields())
             {
                 //this.Text = NameTextBox.Text;
-                Uppercase();
-                Reverse();
+                //Uppercase();
+                //Reverse();
+                DisplayLabel.Text = Reverse(NameTextBox.Text + 
+                    "\n" + AgeTextBox.Text + 
+                    "\n" + CityTextBox.Text +
+                    "\n" + PhoneTextBox.Text);
             }
         }
 
@@ -120,7 +129,7 @@ namespace WinFormsExample
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(NameTextBox.Text != "")
+            if (NameTextBox.Text != "")
             {
                 NameTextBox.BackColor = Color.White;
                 SubmitButton.Enabled = true;
@@ -175,6 +184,11 @@ namespace WinFormsExample
                 PhoneTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = false;
             }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

@@ -48,6 +48,7 @@
             checkBox3 = new CheckBox();
             checkBox4 = new CheckBox();
             ToolTip = new ToolTip(components);
+            DisplayLabel = new Label();
             ControlGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
             SuspendLayout();
@@ -235,6 +236,16 @@
             checkBox4.Text = "checkBox4";
             checkBox4.UseVisualStyleBackColor = true;
             // 
+            // DisplayLabel
+            // 
+            DisplayLabel.BackColor = Color.Gainsboro;
+            DisplayLabel.Cursor = Cursors.No;
+            DisplayLabel.Font = new Font("MV Boli", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DisplayLabel.Location = new Point(443, 65);
+            DisplayLabel.Name = "DisplayLabel";
+            DisplayLabel.Size = new Size(345, 288);
+            DisplayLabel.TabIndex = 0;
+            // 
             // WinFormExampleForm
             // 
             AcceptButton = SubmitButton;
@@ -242,6 +253,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = ClearButton;
             ClientSize = new Size(800, 450);
+            Controls.Add(DisplayLabel);
             Controls.Add(checkBox3);
             Controls.Add(ReverseRadioButton);
             Controls.Add(checkBox4);
@@ -281,5 +293,6 @@
         private CheckBox checkBox3;
         private CheckBox checkBox4;
         private ToolTip ToolTip;
+        private Label DisplayLabel;
     }
 }
