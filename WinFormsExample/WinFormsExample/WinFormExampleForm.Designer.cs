@@ -49,8 +49,13 @@
             checkBox4 = new CheckBox();
             ToolTip = new ToolTip(components);
             DisplayLabel = new Label();
+            TopMenuStrip = new MenuStrip();
+            FileTopMenuItem = new ToolStripMenuItem();
+            HelpTopMenuItem = new ToolStripMenuItem();
+            AboutTopMenuItem = new ToolStripMenuItem();
             ControlGroupBox.SuspendLayout();
             UserInfoGroupBox.SuspendLayout();
+            TopMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // SubmitButton
@@ -246,6 +251,35 @@
             DisplayLabel.Size = new Size(345, 288);
             DisplayLabel.TabIndex = 0;
             // 
+            // TopMenuStrip
+            // 
+            TopMenuStrip.ImageScalingSize = new Size(20, 20);
+            TopMenuStrip.Items.AddRange(new ToolStripItem[] { FileTopMenuItem, HelpTopMenuItem });
+            TopMenuStrip.Location = new Point(0, 0);
+            TopMenuStrip.Name = "TopMenuStrip";
+            TopMenuStrip.Size = new Size(800, 28);
+            TopMenuStrip.TabIndex = 8;
+            TopMenuStrip.Text = "menuStrip1";
+            // 
+            // FileTopMenuItem
+            // 
+            FileTopMenuItem.Name = "FileTopMenuItem";
+            FileTopMenuItem.Size = new Size(46, 24);
+            FileTopMenuItem.Text = "&File";
+            // 
+            // HelpTopMenuItem
+            // 
+            HelpTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { AboutTopMenuItem });
+            HelpTopMenuItem.Name = "HelpTopMenuItem";
+            HelpTopMenuItem.Size = new Size(55, 24);
+            HelpTopMenuItem.Text = "&Help";
+            // 
+            // AboutTopMenuItem
+            // 
+            AboutTopMenuItem.Name = "AboutTopMenuItem";
+            AboutTopMenuItem.Size = new Size(224, 26);
+            AboutTopMenuItem.Text = "&About";
+            // 
             // WinFormExampleForm
             // 
             AcceptButton = SubmitButton;
@@ -261,6 +295,8 @@
             Controls.Add(UpperCaseRadioButton);
             Controls.Add(UserInfoGroupBox);
             Controls.Add(ControlGroupBox);
+            Controls.Add(TopMenuStrip);
+            MainMenuStrip = TopMenuStrip;
             Name = "WinFormExampleForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Example Forum";
@@ -268,6 +304,8 @@
             ControlGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
             UserInfoGroupBox.PerformLayout();
+            TopMenuStrip.ResumeLayout(false);
+            TopMenuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,5 +332,9 @@
         private CheckBox checkBox4;
         private ToolTip ToolTip;
         private Label DisplayLabel;
+        private MenuStrip TopMenuStrip;
+        private ToolStripMenuItem FileTopMenuItem;
+        private ToolStripMenuItem HelpTopMenuItem;
+        private ToolStripMenuItem AboutTopMenuItem;
     }
 }

@@ -100,8 +100,8 @@ namespace WinFormsExample
                 //this.Text = NameTextBox.Text;
                 //Uppercase();
                 //Reverse();
-                DisplayLabel.Text = Reverse(NameTextBox.Text + 
-                    "\n" + AgeTextBox.Text + 
+                DisplayLabel.Text = Reverse(NameTextBox.Text +
+                    "\n" + AgeTextBox.Text +
                     "\n" + CityTextBox.Text +
                     "\n" + PhoneTextBox.Text);
             }
@@ -188,6 +188,11 @@ namespace WinFormsExample
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
