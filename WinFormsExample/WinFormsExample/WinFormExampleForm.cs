@@ -63,27 +63,33 @@ namespace WinFormsExample
             return true;
         }
 
-        private void Uppercase()
+        private string LowerCase(string toLower)
+        {
+            if (LowerRadioButton.Checked)
+            {
+                return toLower.ToLower();
+            }
+            else
+            {
+                return toLower;
+            }
+        }
+        private string UpperCase(string toUpper)
         {
             if (UpperCaseRadioButton.Checked)
             {
-                NameTextBox.Text = NameTextBox.Text.ToUpper();
+                return toUpper.ToUpper();
             }
-        }
-
-        private void Lowercase()
-        {
-            if (UpperCaseRadioButton.Checked)
+            else
             {
-                NameTextBox.Text = NameTextBox.Text.ToLower();
+                return toUpper;
             }
         }
-
         private string Reverse(string reverseThis)
         {
             if (ReverseRadioButton.Checked)
             {
-                return new String(reverseThis.Reverse().ToArray());
+                return new string(reverseThis.Reverse().ToArray());
             }
             else
             {
@@ -109,7 +115,7 @@ namespace WinFormsExample
                 //this.Text = NameTextBox.Text;
                 //Uppercase();
                 //Reverse();
-                DisplayLabel.Text = Uppercase(Lowercase(Reverse(NameTextBox.Text +
+                DisplayLabel.Text = UpperCase(LowerCase(Reverse(NameTextBox.Text +
                     "\n" + AgeTextBox.Text +
                     "\n" + CityTextBox.Text +
                     "\n" + PhoneTextBox.Text)));
@@ -165,7 +171,7 @@ namespace WinFormsExample
             {
                 AgeTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = false;
-                SubmitTopMenuItem.Enabled= false;
+                SubmitTopMenuItem.Enabled = false;
             }
 
         }
@@ -182,7 +188,7 @@ namespace WinFormsExample
             {
                 CityTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = false;
-                SubmitTopMenuItem.Enabled= false;
+                SubmitTopMenuItem.Enabled = false;
             }
 
         }
@@ -199,7 +205,7 @@ namespace WinFormsExample
             {
                 PhoneTextBox.BackColor = Color.LightYellow;
                 SubmitButton.Enabled = false;
-                SubmitTopMenuItem.Enabled= false;
+                SubmitTopMenuItem.Enabled = false;
             }
 
         }
@@ -209,14 +215,24 @@ namespace WinFormsExample
 
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AboutTopMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("No help available");
+        }
+
+        private void UpperContextMenuItem_Click(object sender, EventArgs e)
+        {
+            UpperCaseRadioButton.Checked = true;
+        }
+
+        private void LowerContextMenuItem_Click(object sender, EventArgs e)
+        {
+            LowerRadioButton.Checked = true;
+        }
+
+        private void ReverseContextMenuItem_Click(object sender, EventArgs e)
+        {
+            ReverseRadioButton.Checked = true;
         }
     }
 }
