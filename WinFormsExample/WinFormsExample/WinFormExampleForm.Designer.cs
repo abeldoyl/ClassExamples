@@ -51,6 +51,9 @@
             DisplayLabel = new Label();
             TopMenuStrip = new MenuStrip();
             FileTopMenuItem = new ToolStripMenuItem();
+            SubmitTopMenuItem = new ToolStripMenuItem();
+            ClearTopMenuItem = new ToolStripMenuItem();
+            ExitTopMenuItem = new ToolStripMenuItem();
             HelpTopMenuItem = new ToolStripMenuItem();
             AboutTopMenuItem = new ToolStripMenuItem();
             ControlGroupBox.SuspendLayout();
@@ -263,9 +266,31 @@
             // 
             // FileTopMenuItem
             // 
+            FileTopMenuItem.DropDownItems.AddRange(new ToolStripItem[] { SubmitTopMenuItem, ClearTopMenuItem, ExitTopMenuItem });
             FileTopMenuItem.Name = "FileTopMenuItem";
             FileTopMenuItem.Size = new Size(46, 24);
             FileTopMenuItem.Text = "&File";
+            // 
+            // SubmitTopMenuItem
+            // 
+            SubmitTopMenuItem.Name = "SubmitTopMenuItem";
+            SubmitTopMenuItem.Size = new Size(224, 26);
+            SubmitTopMenuItem.Text = "&Submit";
+            SubmitTopMenuItem.Click += SubmitButton_Click;
+            // 
+            // ClearTopMenuItem
+            // 
+            ClearTopMenuItem.Name = "ClearTopMenuItem";
+            ClearTopMenuItem.Size = new Size(224, 26);
+            ClearTopMenuItem.Text = "&Clear";
+            ClearTopMenuItem.Click += ClearButton_Click;
+            // 
+            // ExitTopMenuItem
+            // 
+            ExitTopMenuItem.Name = "ExitTopMenuItem";
+            ExitTopMenuItem.Size = new Size(224, 26);
+            ExitTopMenuItem.Text = "E&xit";
+            ExitTopMenuItem.Click += ExitButton_Click;
             // 
             // HelpTopMenuItem
             // 
@@ -279,6 +304,7 @@
             AboutTopMenuItem.Name = "AboutTopMenuItem";
             AboutTopMenuItem.Size = new Size(224, 26);
             AboutTopMenuItem.Text = "&About";
+            AboutTopMenuItem.Click += AboutTopMenuItem_Click;
             // 
             // WinFormExampleForm
             // 
@@ -336,5 +362,8 @@
         private ToolStripMenuItem FileTopMenuItem;
         private ToolStripMenuItem HelpTopMenuItem;
         private ToolStripMenuItem AboutTopMenuItem;
+        private ToolStripMenuItem SubmitTopMenuItem;
+        private ToolStripMenuItem ClearTopMenuItem;
+        private ToolStripMenuItem ExitTopMenuItem;
     }
 }
