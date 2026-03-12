@@ -5,6 +5,7 @@ namespace ListExamples
         public ListExamplesForm()
         {
             InitializeComponent();
+            SetDefaults();
         }
         //Custom Methods below here -------------------------------------------
         void ListExampleMethod()
@@ -13,9 +14,58 @@ namespace ListExamples
             names.Add("Sheila");
             names.Add("Bob");
             names.Add("Alex");
-            Console.WriteLine(names.Count); // 2
+            //Console.WriteLine(names.Count); // 2
             this.Text = names.Count.ToString();
-            names.Remove("Alex");
+            names.Remove("Bob");
+            this.Text = names.Count.ToString();
+        }
+
+        void SetDefaults()
+        {
+            FirstNameTextBox.Text = "";
+            LastNameTextBox.Text = "";
+            CompanyTextBox.Text = "";
+            DisplayListBox.Text = "";
+            SelectionComboBox.Text = "";
+            DisplayListBox.Items.Clear();
+            SubmitButton.Enabled = false;
+            FirstNameTextBox.BackColor = Color.LightYellow;
+            LastNameTextBox.BackColor= Color.LightYellow;
+            CompanyTextBox.BackColor = Color.LightYellow;
+        }
+
+        private bool ValidateFields()
+        {
+            bool valid = true;
+            string message = "";
+
+
+            if (CompanyTextBox.Text == "")
+            {
+                message = ("Company is required\n") + message;
+                CompanyTextBox.Focus();
+            }
+
+            if (LastNameTextBox.Text == "")
+            {
+                message = ("Last Name is required\n") + message;
+                LastNameTextBox.Focus();
+            }
+
+            if (FirstNameTextBox.Text == "")
+            {
+                message = ("First Name is required\n") + message;
+                FirstNameTextBox.Focus();
+            }
+
+
+            if (message != "")
+            {
+                valid = false;
+                MessageBox.Show(message);
+            }
+            return true;
+
         }
 
 
@@ -23,19 +73,100 @@ namespace ListExamples
 
         //Event handlers below here -------------------------------------------
 
+        void AddItemToListBox()
+        {
+            DisplayListBox.Items.Add($"{LastNameTextBox.Text},{FirstNameTextBox.Text} {CompanyTextBox.Text}");
+        }
+
+        void AddItemToComboBox()
+        {
+            SelectionComboBox.Items.Add($"{LastNameTextBox.Text},{FirstNameTextBox.Text}");
+            if (SelectionComboBox.Items.Count > 0)
+            {
+                SelectionComboBox.SelectedIndex = 0;
+            }
+        }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            ListExampleMethod();
+            if (FirstNameTextBox.Text != "" &&
+                LastNameTextBox.Text != "" &&
+                CompanyTextBox.Text != "")
+            {
+                SubmitButton.Enabled = true;
+            }
+            if (ValidateFields())
+            {
+                //ListExampleMethod();
+                AddItemToListBox();
+                AddItemToComboBox();
+            }
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            SetDefaults();
+        }
+
+        private void DisplayListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //isolate company
+            string[] temp = DisplayListBox.SelectedItem.ToString().Split(" ");
+            CompanyTextBox.Text = temp[1];
+            //isolate lastName, firstName
+            temp = temp[0].Split(",");
+            FirstNameTextBox.Text = temp[1];
+            LastNameTextBox.Text = temp[0];
+        }
+
+        private void SelectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //select the corosponding entry in the list box
+            DisplayListBox.SelectedIndex = SelectionComboBox.SelectedIndex;
+        }
+
+        private void FirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (FirstNameTextBox.Text != "")
+            {
+                FirstNameTextBox.BackColor = Color.White;
+            }
+            else
+            {
+                FirstNameTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = false;
+            }
+        }
+
+        private void LastNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (LastNameTextBox.Text != "")
+            {
+                LastNameTextBox.BackColor = Color.White;
+            }
+            else
+            {
+                LastNameTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = false;
+            }
+        }
+
+        private void CompanyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (CompanyTextBox.Text != "")
+            {
+                CompanyTextBox.BackColor = Color.White;
+            }
+            else
+            {
+                CompanyTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = false;
+            }
         }
     }
 }
