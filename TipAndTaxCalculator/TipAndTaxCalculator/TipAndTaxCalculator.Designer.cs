@@ -1,6 +1,6 @@
 ﻿namespace TipAndTaxCalculator
 {
-    partial class Form1
+    partial class TipAndTaxCalculator
     {
         /// <summary>
         ///  Required designer variable.
