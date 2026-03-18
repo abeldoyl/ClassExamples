@@ -39,13 +39,13 @@
             StaffCheckBox = new CheckBox();
             Tip20RadioButton = new RadioButton();
             ControlGroupBox = new GroupBox();
-            textBox1 = new TextBox();
-            DollarAmountLabel = new Label();
-            label2 = new Label();
-            TipCustomRadioButton = new RadioButton();
-            TipAmountLabel = new Label();
-            DiscountLabel = new Label();
             CustomTipTextBox = new TextBox();
+            DiscountLabel = new Label();
+            TipAmountLabel = new Label();
+            TipCustomRadioButton = new RadioButton();
+            DollarAmountTextBox = new TextBox();
+            DollarAmountLabel = new Label();
+            DisplayTotalLabel = new Label();
             SubmitGroupBox.SuspendLayout();
             ControlGroupBox.SuspendLayout();
             SuspendLayout();
@@ -100,6 +100,7 @@
             ClearButton.TabIndex = 4;
             ClearButton.Text = "C&lear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // ExitButton
             // 
@@ -109,7 +110,7 @@
             ExitButton.TabIndex = 5;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += this.ExitButton_Click;
+            ExitButton.Click += ExitButton_Click;
             // 
             // SubmitGroupBox
             // 
@@ -171,30 +172,31 @@
             ControlGroupBox.TabIndex = 10;
             ControlGroupBox.TabStop = false;
             // 
-            // textBox1
+            // CustomTipTextBox
             // 
-            textBox1.Location = new Point(138, 127);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 11;
+            CustomTipTextBox.Location = new Point(92, 168);
+            CustomTipTextBox.Name = "CustomTipTextBox";
+            CustomTipTextBox.Size = new Size(125, 27);
+            CustomTipTextBox.TabIndex = 14;
+            CustomTipTextBox.TabStop = false;
             // 
-            // DollarAmountLabel
+            // DiscountLabel
             // 
-            DollarAmountLabel.AutoSize = true;
-            DollarAmountLabel.Location = new Point(25, 130);
-            DollarAmountLabel.Name = "DollarAmountLabel";
-            DollarAmountLabel.Size = new Size(107, 20);
-            DollarAmountLabel.TabIndex = 12;
-            DollarAmountLabel.Text = "Dollar Amount";
+            DiscountLabel.AutoSize = true;
+            DiscountLabel.Location = new Point(223, 23);
+            DiscountLabel.Name = "DiscountLabel";
+            DiscountLabel.Size = new Size(67, 20);
+            DiscountLabel.TabIndex = 12;
+            DiscountLabel.Text = "Discount";
             // 
-            // label2
+            // TipAmountLabel
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(462, 75);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 13;
-            label2.Text = "label2";
+            TipAmountLabel.AutoSize = true;
+            TipAmountLabel.Location = new Point(14, 23);
+            TipAmountLabel.Name = "TipAmountLabel";
+            TipAmountLabel.Size = new Size(87, 20);
+            TipAmountLabel.TabIndex = 11;
+            TipAmountLabel.Text = "Tip Amount";
             // 
             // TipCustomRadioButton
             // 
@@ -207,40 +209,39 @@
             TipCustomRadioButton.Text = "Custom";
             TipCustomRadioButton.UseVisualStyleBackColor = true;
             // 
-            // TipAmountLabel
+            // DollarAmountTextBox
             // 
-            TipAmountLabel.AutoSize = true;
-            TipAmountLabel.Location = new Point(14, 23);
-            TipAmountLabel.Name = "TipAmountLabel";
-            TipAmountLabel.Size = new Size(87, 20);
-            TipAmountLabel.TabIndex = 11;
-            TipAmountLabel.Text = "Tip Amount";
+            DollarAmountTextBox.Location = new Point(138, 127);
+            DollarAmountTextBox.Name = "DollarAmountTextBox";
+            DollarAmountTextBox.Size = new Size(125, 27);
+            DollarAmountTextBox.TabIndex = 11;
             // 
-            // DiscountLabel
+            // DollarAmountLabel
             // 
-            DiscountLabel.AutoSize = true;
-            DiscountLabel.Location = new Point(223, 23);
-            DiscountLabel.Name = "DiscountLabel";
-            DiscountLabel.Size = new Size(67, 20);
-            DiscountLabel.TabIndex = 12;
-            DiscountLabel.Text = "Discount";
+            DollarAmountLabel.AutoSize = true;
+            DollarAmountLabel.Location = new Point(25, 130);
+            DollarAmountLabel.Name = "DollarAmountLabel";
+            DollarAmountLabel.Size = new Size(107, 20);
+            DollarAmountLabel.TabIndex = 12;
+            DollarAmountLabel.Text = "Dollar Amount";
             // 
-            // CustomTipTextBox
+            // DisplayTotalLabel
             // 
-            CustomTipTextBox.Location = new Point(92, 168);
-            CustomTipTextBox.Name = "CustomTipTextBox";
-            CustomTipTextBox.Size = new Size(125, 27);
-            CustomTipTextBox.TabIndex = 14;
-            CustomTipTextBox.TabStop = false;
+            DisplayTotalLabel.AutoSize = true;
+            DisplayTotalLabel.Location = new Point(462, 75);
+            DisplayTotalLabel.Name = "DisplayTotalLabel";
+            DisplayTotalLabel.Size = new Size(50, 20);
+            DisplayTotalLabel.TabIndex = 13;
+            DisplayTotalLabel.Text = "label2";
             // 
             // TipAndTaxCalculatorForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label2);
+            Controls.Add(DisplayTotalLabel);
             Controls.Add(DollarAmountLabel);
-            Controls.Add(textBox1);
+            Controls.Add(DollarAmountTextBox);
             Controls.Add(ControlGroupBox);
             Controls.Add(SubmitGroupBox);
             Name = "TipAndTaxCalculatorForm";
@@ -266,9 +267,9 @@
         private CheckBox StaffCheckBox;
         private RadioButton Tip20RadioButton;
         private GroupBox ControlGroupBox;
-        private TextBox textBox1;
+        private TextBox DollarAmountTextBox;
         private Label DollarAmountLabel;
-        private Label label2;
+        private Label DisplayTotalLabel;
         private Label TipAmountLabel;
         private RadioButton TipCustomRadioButton;
         private Label DiscountLabel;
