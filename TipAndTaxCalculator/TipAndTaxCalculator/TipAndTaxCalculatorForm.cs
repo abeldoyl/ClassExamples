@@ -7,50 +7,127 @@ namespace TipAndTaxCalculator
             InitializeComponent();
             SetDefaults();
         }
-        //custom methods-------------------------------------------------------
+        /*
+         TODO:
+         [x] Set defaults
+         [x] Tip amount after discount include tax
+         [x] calculate state tax amount after discount exclude tip
+         [x] calculate discount amounts / total discount
+         [ ] display original, discounts, tip, tax, amount due formatted as currency
+        */
+
+        // custom methods -----------------------------------------------------
+
+        /// <summary>
+        /// Resets all input fields and controls to their default values.
+        /// </summary>
+        /// <remarks>Use this method to clear user input and restore the initial state of the form. This
+        /// is typically called when starting a new calculation or after completing an operation.</remarks>
         void SetDefaults()
         {
             DollarAmountTextBox.Text = "";
+            Tip15RadioButton.Checked = true;
             CustomTipTextBox.Text = "";
+            CustomTipTextBox.Enabled = false;
             SeniorCheckBox.Checked = false;
             StaffCheckBox.Checked = false;
             DisplayTotalLabel.Text = "";
-            NoTipRadioButton.Checked = true;
+            AllFeildsValid();
             DollarAmountTextBox.Select();
+
+        }
+
+        bool AllFeildsValid()
+        {
+            bool _valid = true;
+            // validate dollar amount
+            try
+            {
+                decimal.Parse(DollarAmountTextBox.Text);
+                DollarAmountTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                DollarAmountTextBox.BackColor = Color.LightYellow;
+                _valid = false;
+            }
+            // validate custom tip amount
+            try
+            {
+                decimal.Parse(CustomTipTextBox.Text);
+                CustomTipTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                CustomTipTextBox.BackColor = Color.LightYellow;
+                _valid = false;
+            }
+            return _valid;
+        }
+
+        /// <summary>
+        /// Calculates the senior discount for the specified amount.
+        /// </summary>
+        /// <param name="thisAmount">The original amount to which the senior discount will be applied. Must be a non-negative value.</param>
+        /// <returns>The calculated discount amount, equal to 3 percent of the specified amount.</returns>
+        decimal CalculateSeniorDiscountOn(decimal thisAmount)
+        {
+            return thisAmount * 0.03m;
         }
         /// <summary>
-        /// 
+        /// Calculates the discount amount for a Staff transaction based on the specified amount.
         /// </summary>
-        /// <param name="thisAmount"></param>
-        /// <returns></returns>
-        decimal CalculateTip(decimal thisAmount)
+        /// <param name="thisAmount">The transaction amount on which to calculate the staff discount. Must be a non-negative value.</param>
+        /// <returns>The discount amount to be applied to the transaction. The value is 5% of the specified amount.</returns>
+        decimal CalculateStaffDiscountOn(decimal thisAmount)
         {
-            decimal subtotal = 0;
+            return thisAmount * 0.05m;
+        }
+        /// <summary>
+        /// Calculates the tax amount for the specified monetary value using a fixed tax rate.
+        /// </summary>
+        /// <param name="thisAmount">The monetary amount on which to calculate tax. Must be a non-negative value.</param>
+        /// <returns>The calculated tax amount based on the specified value.</returns>
+        decimal CalculateTaxOn(decimal thisAmount)
+        {
+            return thisAmount * 0.06m;
+        }
+
+        /// <summary>
+        /// Calculates the tip amount based on the specified subtotal and the currently selected tip percentage option.
+        /// </summary>
+        /// <remarks>The tip percentage is determined by the selected radio button (15%, 18%, 20%, or a
+        /// custom value). If no valid option is selected, the method returns 0.</remarks>
+        /// <param name="thisAmount">The subtotal amount on which to calculate the tip. Must be a non-negative value.</param>
+        /// <returns>The calculated tip amount as a decimal value. Returns 0 if no valid tip percentage option is selected.</returns>
+        decimal CalculateTipOn(decimal thisAmount, decimal customTip = 0)
+        {
+            decimal subTotal = 0;
             switch (true)
             {
                 case bool when NoTipRadioButton.Checked:
-                    subtotal = thisAmount * 0m;
+                    subTotal = thisAmount;
                     break;
                 case bool when Tip15RadioButton.Checked:
-                    subtotal = thisAmount * 0.15m;
+                    subTotal = thisAmount * 0.15m;
                     break;
                 case bool when Tip18RadioButton.Checked:
-                    subtotal = thisAmount * 0.18m;
+                    subTotal = thisAmount * 0.18m;
                     break;
                 case bool when Tip20RadioButton.Checked:
-                    subtotal = thisAmount * 0.20m;
+                    subTotal = thisAmount * 0.20m;
                     break;
                 case bool when TipCustomRadioButton.Checked:
+                    subTotal = customTip;
                     break;
                 default:
-                    MessageBox.Show("Hello you FAILED");
+                    MessageBox.Show("This tip should never happen!");
                     break;
             }
-            return 0.00m;
+            return subTotal;
         }
 
-        //Event Handlers-------------------------------------------------------
-
+        // Event handlers below here ------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,6 +136,42 @@ namespace TipAndTaxCalculator
         private void ClearButton_Click(object sender, EventArgs e)
         {
             SetDefaults();
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            decimal originalAmount = 0;
+            decimal totalDiscount = 0;
+            decimal tax = 0;
+            decimal tip = 0;
+            decimal amountDue = 0;
+            if (AllFeildsValid())
+            {
+                originalAmount = decimal.Parse(DollarAmountTextBox.Text);
+                totalDiscount += CalculateSeniorDiscountOn(originalAmount);
+                totalDiscount += CalculateStaffDiscountOn(originalAmount);
+                tax = CalculateTaxOn(originalAmount - totalDiscount);
+                tip = CalculateTipOn(originalAmount - totalDiscount + tax);
+                amountDue = originalAmount - totalDiscount + tax + tip;
+            }
+        }
+
+        private void DollarAmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            AllFeildsValid();
+        }
+
+        private void TipCustomRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TipCustomRadioButton.Checked)
+            {
+                CustomTipTextBox.Enabled = true;
+            }
+            else
+            {
+                CustomTipTextBox.Text = "";
+                CustomTipTextBox.Enabled = false;
+            }
         }
     }
 }
