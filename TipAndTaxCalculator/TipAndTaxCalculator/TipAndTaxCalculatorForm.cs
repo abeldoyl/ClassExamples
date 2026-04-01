@@ -27,17 +27,17 @@ namespace TipAndTaxCalculator
         {
             DollarAmountTextBox.Text = "";
             Tip15RadioButton.Checked = true;
-            CustomTipTextBox.Text = "";
+            CustomTipTextBox.Text = "0";
             CustomTipTextBox.Enabled = false;
             SeniorCheckBox.Checked = false;
             StaffCheckBox.Checked = false;
             DisplayTotalLabel.Text = "";
-            AllFeildsValid();
+            AllFieldsValid();
             DollarAmountTextBox.Select();
 
         }
 
-        bool AllFeildsValid()
+        bool AllFieldsValid()
         {
             bool _valid = true;
             // validate dollar amount
@@ -63,6 +63,32 @@ namespace TipAndTaxCalculator
                 _valid = false;
             }
             return _valid;
+        }
+
+        void DisplayTransaction()
+        {
+            decimal originalAmount = 0;
+            decimal totalDiscount = 0;
+            decimal tax = 0;
+            decimal tip = 0;
+            decimal amountDue = 0;
+            int padding = 12;
+            if (AllFieldsValid())
+            {
+                originalAmount = decimal.Parse(DollarAmountTextBox.Text);
+                totalDiscount += CalculateSeniorDiscountOn(originalAmount);
+                totalDiscount += CalculateStaffDiscountOn(originalAmount);
+                tax = CalculateTaxOn(originalAmount - totalDiscount);
+                tip = CalculateTipOn(originalAmount - totalDiscount + tax);
+                amountDue = originalAmount - totalDiscount + tax + tip;
+                
+                DisplayTotalLabel.Text = $"Charges:     {originalAmount:C}\n" +
+                                         $"Discount:    {totalDiscount:C}\n" +
+                                         $"Sales Tax:   {tax:C}\n" +
+                                         $"Subtotal:    ??\n" +
+                                         $"Tip:         {tip:C}\n" +
+                                         $"Total:       {amountDue:C}";
+            }
         }
 
         /// <summary>
@@ -140,25 +166,12 @@ namespace TipAndTaxCalculator
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            decimal originalAmount = 0;
-            decimal totalDiscount = 0;
-            decimal tax = 0;
-            decimal tip = 0;
-            decimal amountDue = 0;
-            if (AllFeildsValid())
-            {
-                originalAmount = decimal.Parse(DollarAmountTextBox.Text);
-                totalDiscount += CalculateSeniorDiscountOn(originalAmount);
-                totalDiscount += CalculateStaffDiscountOn(originalAmount);
-                tax = CalculateTaxOn(originalAmount - totalDiscount);
-                tip = CalculateTipOn(originalAmount - totalDiscount + tax);
-                amountDue = originalAmount - totalDiscount + tax + tip;
-            }
+            DisplayTransaction();
         }
 
         private void DollarAmountTextBox_TextChanged(object sender, EventArgs e)
         {
-            AllFeildsValid();
+            AllFieldsValid();
         }
 
         private void TipCustomRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -169,7 +182,7 @@ namespace TipAndTaxCalculator
             }
             else
             {
-                CustomTipTextBox.Text = "";
+                CustomTipTextBox.Text = "0";
                 CustomTipTextBox.Enabled = false;
             }
         }

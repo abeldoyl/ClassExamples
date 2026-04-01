@@ -58,6 +58,7 @@
             CalculateButton.TabIndex = 0;
             CalculateButton.Text = "&Calculate";
             CalculateButton.UseVisualStyleBackColor = true;
+            CalculateButton.Click += CalculateButton_Click;
             // 
             // NoTipRadioButton
             // 
@@ -69,6 +70,7 @@
             NoTipRadioButton.TabStop = true;
             NoTipRadioButton.Text = "No Tip";
             NoTipRadioButton.UseVisualStyleBackColor = true;
+            //NoTipRadioButton.CheckedChanged += NoTipRadioButton_CheckedChanged;
             // 
             // Tip15RadioButton
             // 
@@ -80,6 +82,7 @@
             Tip15RadioButton.TabStop = true;
             Tip15RadioButton.Text = "15%";
             Tip15RadioButton.UseVisualStyleBackColor = true;
+            //Tip15RadioButton.CheckedChanged += Tip15RadioButton_CheckedChanged;
             // 
             // Tip18RadioButton
             // 
@@ -91,6 +94,7 @@
             Tip18RadioButton.TabStop = true;
             Tip18RadioButton.Text = "18%";
             Tip18RadioButton.UseVisualStyleBackColor = true;
+            //Tip18RadioButton.CheckedChanged += Tip18RadioButton_CheckedChanged;
             // 
             // ClearButton
             // 
@@ -153,6 +157,7 @@
             Tip20RadioButton.TabStop = true;
             Tip20RadioButton.Text = "20%";
             Tip20RadioButton.UseVisualStyleBackColor = true;
+            //Tip20RadioButton.CheckedChanged += Tip20RadioButton_CheckedChanged;
             // 
             // ControlGroupBox
             // 
@@ -179,6 +184,7 @@
             CustomTipTextBox.Size = new Size(125, 27);
             CustomTipTextBox.TabIndex = 14;
             CustomTipTextBox.TabStop = false;
+            //CustomTipTextBox.TextChanged += CustomTipTextBox_TextChanged;
             // 
             // DiscountLabel
             // 
@@ -208,6 +214,7 @@
             TipCustomRadioButton.TabStop = true;
             TipCustomRadioButton.Text = "Custom";
             TipCustomRadioButton.UseVisualStyleBackColor = true;
+            TipCustomRadioButton.CheckedChanged += TipCustomRadioButton_CheckedChanged;
             // 
             // DollarAmountTextBox
             // 
@@ -215,6 +222,7 @@
             DollarAmountTextBox.Name = "DollarAmountTextBox";
             DollarAmountTextBox.Size = new Size(125, 27);
             DollarAmountTextBox.TabIndex = 11;
+            DollarAmountTextBox.TextChanged += DollarAmountTextBox_TextChanged;
             // 
             // DollarAmountLabel
             // 
@@ -228,9 +236,10 @@
             // DisplayTotalLabel
             // 
             DisplayTotalLabel.AutoSize = true;
+            DisplayTotalLabel.Font = new Font("Cascadia Code", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DisplayTotalLabel.Location = new Point(462, 75);
             DisplayTotalLabel.Name = "DisplayTotalLabel";
-            DisplayTotalLabel.Size = new Size(50, 20);
+            DisplayTotalLabel.Size = new Size(84, 27);
             DisplayTotalLabel.TabIndex = 13;
             DisplayTotalLabel.Text = "label2";
             // 
@@ -252,6 +261,31 @@
             ControlGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void CustomTipTextBox_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void NoTipRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Tip15RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Tip18RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Tip20RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
