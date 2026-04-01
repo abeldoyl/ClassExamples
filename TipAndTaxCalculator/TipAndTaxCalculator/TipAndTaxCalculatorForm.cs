@@ -70,6 +70,7 @@ namespace TipAndTaxCalculator
             decimal originalAmount = 0;
             decimal totalDiscount = 0;
             decimal tax = 0;
+            decimal subTotal = 0;
             decimal tip = 0;
             decimal amountDue = 0;
             int padding = 12;
@@ -79,13 +80,14 @@ namespace TipAndTaxCalculator
                 totalDiscount += CalculateSeniorDiscountOn(originalAmount);
                 totalDiscount += CalculateStaffDiscountOn(originalAmount);
                 tax = CalculateTaxOn(originalAmount - totalDiscount);
-                tip = CalculateTipOn(originalAmount - totalDiscount + tax);
+                subTotal = originalAmount - totalDiscount + tax;
+                tip = CalculateTipOn((originalAmount - totalDiscount) + tax, decimal.Parse(CustomTipTextBox.Text));
                 amountDue = originalAmount - totalDiscount + tax + tip;
                 
                 DisplayTotalLabel.Text = $"Charges:     {originalAmount:C}\n" +
                                          $"Discount:    {totalDiscount:C}\n" +
                                          $"Sales Tax:   {tax:C}\n" +
-                                         $"Subtotal:    ??\n" +
+                                         $"Subtotal:    {subTotal:C}\n" +
                                          $"Tip:         {tip:C}\n" +
                                          $"Total:       {amountDue:C}";
             }
@@ -98,7 +100,12 @@ namespace TipAndTaxCalculator
         /// <returns>The calculated discount amount, equal to 3 percent of the specified amount.</returns>
         decimal CalculateSeniorDiscountOn(decimal thisAmount)
         {
-            return thisAmount * 0.03m;
+            decimal discount = 0;
+            if (SeniorCheckBox.Checked)
+            {
+                discount = thisAmount * 0.03m;
+            }
+            return discount;
         }
         /// <summary>
         /// Calculates the discount amount for a Staff transaction based on the specified amount.
@@ -107,7 +114,12 @@ namespace TipAndTaxCalculator
         /// <returns>The discount amount to be applied to the transaction. The value is 5% of the specified amount.</returns>
         decimal CalculateStaffDiscountOn(decimal thisAmount)
         {
-            return thisAmount * 0.05m;
+            decimal discount = 0;
+            if (StaffCheckBox.Checked)
+            {
+                return thisAmount * 0.05m;
+            }
+            return discount;
         }
         /// <summary>
         /// Calculates the tax amount for the specified monetary value using a fixed tax rate.

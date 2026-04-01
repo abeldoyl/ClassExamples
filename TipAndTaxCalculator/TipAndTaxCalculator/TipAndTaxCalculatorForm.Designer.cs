@@ -39,6 +39,7 @@
             StaffCheckBox = new CheckBox();
             Tip20RadioButton = new RadioButton();
             ControlGroupBox = new GroupBox();
+            TipCurrancyLabel = new Label();
             CustomTipTextBox = new TextBox();
             DiscountLabel = new Label();
             TipAmountLabel = new Label();
@@ -70,7 +71,6 @@
             NoTipRadioButton.TabStop = true;
             NoTipRadioButton.Text = "No Tip";
             NoTipRadioButton.UseVisualStyleBackColor = true;
-            //NoTipRadioButton.CheckedChanged += NoTipRadioButton_CheckedChanged;
             // 
             // Tip15RadioButton
             // 
@@ -82,7 +82,6 @@
             Tip15RadioButton.TabStop = true;
             Tip15RadioButton.Text = "15%";
             Tip15RadioButton.UseVisualStyleBackColor = true;
-            //Tip15RadioButton.CheckedChanged += Tip15RadioButton_CheckedChanged;
             // 
             // Tip18RadioButton
             // 
@@ -94,7 +93,6 @@
             Tip18RadioButton.TabStop = true;
             Tip18RadioButton.Text = "18%";
             Tip18RadioButton.UseVisualStyleBackColor = true;
-            //Tip18RadioButton.CheckedChanged += Tip18RadioButton_CheckedChanged;
             // 
             // ClearButton
             // 
@@ -157,10 +155,10 @@
             Tip20RadioButton.TabStop = true;
             Tip20RadioButton.Text = "20%";
             Tip20RadioButton.UseVisualStyleBackColor = true;
-            //Tip20RadioButton.CheckedChanged += Tip20RadioButton_CheckedChanged;
             // 
             // ControlGroupBox
             // 
+            ControlGroupBox.Controls.Add(TipCurrancyLabel);
             ControlGroupBox.Controls.Add(CustomTipTextBox);
             ControlGroupBox.Controls.Add(DiscountLabel);
             ControlGroupBox.Controls.Add(TipAmountLabel);
@@ -177,14 +175,23 @@
             ControlGroupBox.TabIndex = 10;
             ControlGroupBox.TabStop = false;
             // 
+            // TipCurrancyLabel
+            // 
+            TipCurrancyLabel.AutoSize = true;
+            TipCurrancyLabel.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TipCurrancyLabel.Location = new Point(95, 169);
+            TipCurrancyLabel.Name = "TipCurrancyLabel";
+            TipCurrancyLabel.Size = new Size(19, 23);
+            TipCurrancyLabel.TabIndex = 15;
+            TipCurrancyLabel.Text = "$";
+            // 
             // CustomTipTextBox
             // 
-            CustomTipTextBox.Location = new Point(92, 168);
+            CustomTipTextBox.Location = new Point(113, 168);
             CustomTipTextBox.Name = "CustomTipTextBox";
-            CustomTipTextBox.Size = new Size(125, 27);
+            CustomTipTextBox.Size = new Size(103, 27);
             CustomTipTextBox.TabIndex = 14;
             CustomTipTextBox.TabStop = false;
-            //CustomTipTextBox.TextChanged += CustomTipTextBox_TextChanged;
             // 
             // DiscountLabel
             // 
@@ -268,11 +275,6 @@
             throw new NotImplementedException();
         }
 
-        private void NoTipRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Tip15RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -308,5 +310,6 @@
         private RadioButton TipCustomRadioButton;
         private Label DiscountLabel;
         private TextBox CustomTipTextBox;
+        private Label TipCurrancyLabel;
     }
 }
