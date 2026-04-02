@@ -1,6 +1,6 @@
 ﻿namespace GraphicExample
 {
-    partial class Graphics
+    partial class GraphicsForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            DisplayPictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // DisplayPictureBox
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.BackColor = Color.WhiteSmoke;
-            pictureBox1.Location = new Point(12, 39);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1458, 808);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            DisplayPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DisplayPictureBox.BackColor = Color.WhiteSmoke;
+            DisplayPictureBox.Location = new Point(12, 39);
+            DisplayPictureBox.Name = "DisplayPictureBox";
+            DisplayPictureBox.Size = new Size(1458, 808);
+            DisplayPictureBox.TabIndex = 0;
+            DisplayPictureBox.TabStop = false;
             // 
-            // Graphics
+            // GraphicsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1482, 953);
-            Controls.Add(pictureBox1);
+            Controls.Add(DisplayPictureBox);
             MinimumSize = new Size(500, 500);
-            Name = "Graphics";
+            Name = "GraphicsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "Graphics Example";
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox DisplayPictureBox;
     }
 }
