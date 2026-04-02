@@ -144,7 +144,7 @@ namespace TipAndTaxCalculator
             switch (true)
             {
                 case bool when NoTipRadioButton.Checked:
-                    subTotal = thisAmount;
+                    subTotal = thisAmount * 0.00m;
                     break;
                 case bool when Tip15RadioButton.Checked:
                     subTotal = thisAmount * 0.15m;
