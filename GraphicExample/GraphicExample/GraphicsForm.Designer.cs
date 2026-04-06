@@ -37,7 +37,7 @@
             // DisplayPictureBox
             // 
             DisplayPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            DisplayPictureBox.BackColor = Color.WhiteSmoke;
+            DisplayPictureBox.BackColor = Color.Gainsboro;
             DisplayPictureBox.Location = new Point(12, 39);
             DisplayPictureBox.Name = "DisplayPictureBox";
             DisplayPictureBox.Size = new Size(1458, 808);
@@ -46,6 +46,7 @@
             // 
             // ExitButton
             // 
+            ExitButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ExitButton.Location = new Point(1340, 881);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(130, 60);
@@ -56,6 +57,7 @@
             // 
             // DrawButton
             // 
+            DrawButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             DrawButton.Location = new Point(1204, 881);
             DrawButton.Name = "DrawButton";
             DrawButton.Size = new Size(130, 60);
