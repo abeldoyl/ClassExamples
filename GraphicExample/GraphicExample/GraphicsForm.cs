@@ -14,7 +14,7 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             //create a pen to draw with
             Pen thePen = new Pen(Color.Purple);
-            thePen.Width = 100;
+            thePen.Width = 150;
 
             //draw the line here
             g.DrawLine(thePen, 0, 0, DisplayPictureBox.Width, DisplayPictureBox.Height);
@@ -99,6 +99,20 @@ namespace GraphicExample
             theBrush.Dispose();
             theFont.Dispose();
         }
+        void DrawImage()
+        {
+            //create a graphics object named g that draws on the picture box
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            Rectangle bounds = new Rectangle(500, 100, 400, 500);
+            Image theImage = Image.FromFile("..\\..\\..\\Shadow.png");
+
+            //draw the line here
+            g.DrawImage(theImage, bounds);
+
+            //free up resources
+            g.Dispose();
+            theImage.Dispose();
+        }
 
 
 
@@ -115,6 +129,7 @@ namespace GraphicExample
             DrawRectangle();
             DrawPie();
             DrawString();
+            DrawImage();
         }
     }
 }
