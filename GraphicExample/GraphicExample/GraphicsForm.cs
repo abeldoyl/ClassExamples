@@ -18,6 +18,8 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
             Pen thePen = new Pen(Color.Black);
+            thePen.Width = 7;
+            thePen.Color = PenColorDialog.Color;
             //draw the line here
             g.DrawLine(thePen, oldX, oldY, newX, newY);
 
@@ -162,7 +164,8 @@ namespace GraphicExample
                     //Save for context menu
                     break;
                 case MouseButtons.Middle:
-                    //TODO open color menu 
+                    //TODO open color menu
+                    PenColorDialog.ShowDialog();
                     break;
                 default:
                     //MessageBox.Show($"{e.Button}");
@@ -174,7 +177,11 @@ namespace GraphicExample
         private void DisplayPictureBox_MouseDown(object? sender, MouseEventArgs e)
         {
             this.Text += $"{e.Button}";
+        }
 
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            DisplayPictureBox.Refresh();
         }
     }
 }
