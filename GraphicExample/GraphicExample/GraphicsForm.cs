@@ -11,15 +11,14 @@ namespace GraphicExample
         }
 
 
-        int oldX, oldY;
+        int oldX = 0, oldY = 0;
         void DrawLineSegment(int newX, int newY)
         {
             //create a Graphics object named g that draws on the picture box
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
-            Pen thePen = new Pen(Color.Black);
+            Pen thePen = new Pen(this.PenColor);
             thePen.Width = 7;
-            thePen.Color = PenColorDialog.Color;
             //draw the line here
             g.DrawLine(thePen, oldX, oldY, newX, newY);
 
@@ -134,7 +133,40 @@ namespace GraphicExample
             g.Dispose();
             theImage.Dispose();
         }
+        
+        private Color PenColor = Color.Red;
+        void UpdatePenColor()
+        {
+            PenColorDialog.ShowDialog();
+            this.PenColor = PenColorDialog.Color;
+        }
 
+        void DrawSineWave()
+        {
+            //create a Graphics object named g that draws on the picture box
+            Graphics g = DisplayPictureBox.CreateGraphics();
+            // create a pen to draw with
+            Pen thePen = new Pen(Color.OrangeRed);
+            thePen.Width = 2;
+            int lastX = 0, lastY = 0, currentY = 0;
+            float scaleX = DisplayPictureBox.Width / 360F;
+            float scaleY = DisplayPictureBox.Height / 200F;
+
+            g.TranslateTransform(0, DisplayPictureBox.Height / 2);
+            g.ScaleTransform(scaleX, scaleY);
+            for (int currentX = 0; currentX < 360; currentX++)
+            {
+                currentY = (int)Math.Round(100 * Math.Sin((Math.PI / 180) * currentX));
+                g.DrawLine(thePen, lastX, lastY, currentX, currentY);
+                lastX = currentX;
+                lastY = currentY;
+
+            }
+
+            //free up resources
+            g.Dispose();
+            thePen.Dispose();
+        }
 
 
         //Event Handlers------------------------------------------------------
@@ -145,12 +177,13 @@ namespace GraphicExample
 
         private void DrawButton_Click(object sender, EventArgs e)
         {
-            DrawLine();
-            DrawEllipse();
-            DrawRectangle();
-            DrawPie();
-            DrawString();
-            DrawImage();
+            //DrawLine();
+            //DrawEllipse();
+            //DrawRectangle();
+            //DrawPie();
+            //DrawString();
+            //DrawImage();
+            DrawSineWave();
         }
         private void DisplayPictureBox_MouseMove(object? sender, MouseEventArgs e)
         {
@@ -164,8 +197,7 @@ namespace GraphicExample
                     //Save for context menu
                     break;
                 case MouseButtons.Middle:
-                    //TODO open color menu
-                    PenColorDialog.ShowDialog();
+                    UpdatePenColor();
                     break;
                 default:
                     //MessageBox.Show($"{e.Button}");
