@@ -150,7 +150,7 @@ namespace GraphicExample
             thePen.Width = 2;
             int lastX = 0, lastY = 0, currentY = 0;
             float scaleX = DisplayPictureBox.Width / 360F;
-            float scaleY = DisplayPictureBox.Height / 200F;
+            float scaleY = (DisplayPictureBox.Height / 200F) * -1;
 
             g.TranslateTransform(0, DisplayPictureBox.Height / 2);
             g.ScaleTransform(scaleX, scaleY);
