@@ -18,7 +18,7 @@ namespace GraphicExample
             Graphics g = DisplayPictureBox.CreateGraphics();
             // create a pen to draw with
             Pen thePen = new Pen(this.PenColor);
-            thePen.Width = 7;
+            thePen.Width = 2;
             //draw the line here
             g.DrawLine(thePen, oldX, oldY, newX, newY);
 
@@ -168,6 +168,31 @@ namespace GraphicExample
             thePen.Dispose();
         }
 
+        void DrawGrid()
+        {
+            DisplayPictureBox.Refresh();
+            Color oldColor = this.PenColor;
+            this.PenColor = Color.Gray;
+            int xDiv = DisplayPictureBox.Width / 10;
+            int yDiv = DisplayPictureBox.Height / 8;
+
+            this.oldX = 0;
+            this.oldY = 0;
+            for (int x = 0; x < DisplayPictureBox.Width; x += xDiv)
+            {
+                oldX = x;
+                DrawLineSegment(x, DisplayPictureBox.Height);
+            }
+            this.oldX = 0;
+            this.oldY = 0;
+            for (int y = 0; y < DisplayPictureBox.Height; y += yDiv)
+            {
+                oldY = y;
+                DrawLineSegment(DisplayPictureBox.Width, y);
+            }
+            this.PenColor = oldColor;
+        }
+
 
         //Event Handlers------------------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
@@ -183,6 +208,7 @@ namespace GraphicExample
             //DrawPie();
             //DrawString();
             //DrawImage();
+            DrawGrid();
             DrawSineWave();
         }
         private void DisplayPictureBox_MouseMove(object? sender, MouseEventArgs e)
