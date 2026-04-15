@@ -133,7 +133,7 @@ namespace GraphicExample
             g.Dispose();
             theImage.Dispose();
         }
-        
+
         private Color PenColor = Color.Red;
         void UpdatePenColor()
         {
@@ -241,5 +241,7 @@ namespace GraphicExample
         {
             DisplayPictureBox.Refresh();
         }
+
+        
     }
 }

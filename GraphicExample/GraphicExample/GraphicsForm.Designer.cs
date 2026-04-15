@@ -36,10 +36,10 @@
             PenColorDialog = new ColorDialog();
             TopMenuStrip = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
-            helpToolStripMenuItem = new ToolStripMenuItem();
             drawToolStripMenuItem = new ToolStripMenuItem();
             clearToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
             DisplayContextMenuStrip = new ContextMenuStrip(components);
             drawToolStripMenuItem1 = new ToolStripMenuItem();
             clearToolStripMenuItem1 = new ToolStripMenuItem();
@@ -109,12 +109,6 @@
             fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "&File";
             // 
-            // helpToolStripMenuItem
-            // 
-            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(55, 24);
-            helpToolStripMenuItem.Text = "&Help";
-            // 
             // drawToolStripMenuItem
             // 
             drawToolStripMenuItem.Name = "drawToolStripMenuItem";
@@ -132,6 +126,12 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(224, 26);
             exitToolStripMenuItem.Text = "E&xit";
+            // 
+            // helpToolStripMenuItem
+            // 
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(55, 24);
+            helpToolStripMenuItem.Text = "&Help";
             // 
             // DisplayContextMenuStrip
             // 
