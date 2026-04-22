@@ -44,6 +44,7 @@
             drawToolStripMenuItem1 = new ToolStripMenuItem();
             clearToolStripMenuItem1 = new ToolStripMenuItem();
             colorToolStripMenuItem = new ToolStripMenuItem();
+            aboutToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             TopMenuStrip.SuspendLayout();
             DisplayContextMenuStrip.SuspendLayout();
@@ -112,23 +113,24 @@
             // drawToolStripMenuItem
             // 
             drawToolStripMenuItem.Name = "drawToolStripMenuItem";
-            drawToolStripMenuItem.Size = new Size(224, 26);
+            drawToolStripMenuItem.Size = new Size(127, 26);
             drawToolStripMenuItem.Text = "&Draw";
             // 
             // clearToolStripMenuItem
             // 
             clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            clearToolStripMenuItem.Size = new Size(224, 26);
+            clearToolStripMenuItem.Size = new Size(127, 26);
             clearToolStripMenuItem.Text = "&Clear";
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(224, 26);
+            exitToolStripMenuItem.Size = new Size(127, 26);
             exitToolStripMenuItem.Text = "E&xit";
             // 
             // helpToolStripMenuItem
             // 
+            helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             helpToolStripMenuItem.Size = new Size(55, 24);
             helpToolStripMenuItem.Text = "&Help";
@@ -157,6 +159,13 @@
             colorToolStripMenuItem.Name = "colorToolStripMenuItem";
             colorToolStripMenuItem.Size = new Size(114, 24);
             colorToolStripMenuItem.Text = "Color";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            aboutToolStripMenuItem.Size = new Size(224, 26);
+            aboutToolStripMenuItem.Text = "About";
+            aboutToolStripMenuItem.Click += aboutToolStripMenuItem_Click;
             // 
             // GraphicsForm
             // 
@@ -198,5 +207,6 @@
         private ToolStripMenuItem drawToolStripMenuItem1;
         private ToolStripMenuItem clearToolStripMenuItem1;
         private ToolStripMenuItem colorToolStripMenuItem;
+        private ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

@@ -5,6 +5,7 @@ namespace GraphicExample
         //Custom Methods------------------------------------------------------
         public GraphicsForm()
         {
+            ShowSplashForm();
             InitializeComponent();
             DisplayPictureBox.MouseMove += DisplayPictureBox_MouseMove;
             DisplayPictureBox.MouseDown += DisplayPictureBox_MouseDown;
@@ -26,6 +27,13 @@ namespace GraphicExample
             g.Dispose();
             thePen.Dispose();
 
+        }
+        private void ShowSplashForm()
+        {
+            SplashForm splashForm = new SplashForm();
+            splashForm.Show();
+            System.Threading.Thread.Sleep(3000);
+            splashForm.Close();
         }
 
         void DrawLine()
@@ -242,6 +250,10 @@ namespace GraphicExample
             DisplayPictureBox.Refresh();
         }
 
-        
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
+        }
     }
 }
