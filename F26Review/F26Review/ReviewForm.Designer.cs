@@ -29,31 +29,57 @@
         private void InitializeComponent()
         {
             ExitButton = new Button();
+            DisplayPictureBox = new PictureBox();
+            DrawButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).BeginInit();
             SuspendLayout();
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(691, 365);
+            ExitButton.Location = new Point(251, 365);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(97, 73);
             ExitButton.TabIndex = 0;
             ExitButton.Text = "E&xit";
             ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += this.ExitButton_Click;
+            ExitButton.Click += ExitButton_Click;
+            // 
+            // DisplayPictureBox
+            // 
+            DisplayPictureBox.Location = new Point(12, 21);
+            DisplayPictureBox.Name = "DisplayPictureBox";
+            DisplayPictureBox.Size = new Size(336, 338);
+            DisplayPictureBox.TabIndex = 1;
+            DisplayPictureBox.TabStop = false;
+            // 
+            // DrawButton
+            // 
+            DrawButton.Location = new Point(148, 365);
+            DrawButton.Name = "DrawButton";
+            DrawButton.Size = new Size(97, 73);
+            DrawButton.TabIndex = 2;
+            DrawButton.Text = "&Draw";
+            DrawButton.UseVisualStyleBackColor = true;
+            DrawButton.Click += this.DrawButton_Click;
             // 
             // ReviewForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(359, 450);
+            Controls.Add(DrawButton);
+            Controls.Add(DisplayPictureBox);
             Controls.Add(ExitButton);
             Name = "ReviewForm";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)DisplayPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button ExitButton;
+        private PictureBox DisplayPictureBox;
+        private Button DrawButton;
     }
 }
