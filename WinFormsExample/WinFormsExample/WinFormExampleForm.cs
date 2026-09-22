@@ -155,11 +155,7 @@ namespace WinFormsExample
             }
         }
 
-        //Event Hrandelers Below
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        //Event Handlers Below
 
         private void ExitButton_Click(object sender, EventArgs e)
         {

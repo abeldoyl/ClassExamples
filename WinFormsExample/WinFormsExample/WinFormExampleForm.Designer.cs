@@ -386,7 +386,6 @@
             Name = "WinFormExampleForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Example Forum";
-            Load += Form1_Load;
             ControlGroupBox.ResumeLayout(false);
             UserInfoGroupBox.ResumeLayout(false);
             UserInfoGroupBox.PerformLayout();
