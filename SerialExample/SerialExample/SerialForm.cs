@@ -73,6 +73,12 @@ namespace SerialExample
             _serialPort.Write(thingy, 0, 1);
         }
 
+        void TestQyAtBoardLeds()
+        {
+            byte[] thingy = { 0x20, 0xFF };
+            _serialPort.Write(thingy, 0, thingy.Length);
+        }
+
         // Event Handlers Below here ******************************************
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -88,7 +94,8 @@ namespace SerialExample
         private void WriteButton_Click(object sender, EventArgs e)
         {
             //SerialSend();
-            TestQyAtBoard();
+            //TestQyAtBoard();
+            TestQyAtBoardLeds();
         }
 
         private void ReadButton_Click(object sender, EventArgs e)
