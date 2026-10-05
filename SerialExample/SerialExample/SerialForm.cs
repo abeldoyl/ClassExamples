@@ -4,31 +4,59 @@ namespace SerialExample
 {
     public partial class SerialForm : Form
     {
+        private SerialPort _serialPort;
+
         public SerialForm()
         {
             InitializeComponent();
         }
-        private SerialPort _serialPort;
+
         void SerialPortSetup()
         {
-            _serialPort.PortName = "COM4"; // Set your COM port here
-            _serialPort.BaudRate = 9600; // Set your baud rate here
-            _serialPort.DataBits = 8;
-            _serialPort.StopBits = StopBits.One;
-            _serialPort.Parity = Parity.None;
+            // Close and dispose any previous instance first
+            if (_serialPort != null)
+            {
+                if (_serialPort.IsOpen)
+                    _serialPort.Close();
+                _serialPort.Dispose();
+            }
+
+            _serialPort = new SerialPort
+            {
+                PortName = "COM4",
+                BaudRate = 9600,
+                DataBits = 8,
+                Parity = Parity.None,
+                StopBits = StopBits.One   // None is invalid; One is the usual default
+            };
         }
 
-
-        //Event handlers below
-        private void ExitButton_Click(object sender, EventArgs e)
+        void SerialConnect()
         {
-            this.Close();
+            try
+            {
+                if (!_serialPort.IsOpen)
+                    _serialPort.Open();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("COM4 is in use by another process.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open port: {ex.Message}");
+            }
         }
 
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             SerialPortSetup();
+            SerialConnect();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
-
 }
